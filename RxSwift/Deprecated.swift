@@ -178,9 +178,9 @@ public final class Variable<Element> {
     // state
     private var _value: Element
 
-    #if DEBUG
-    private let _synchronizationTracker = SynchronizationTracker()
-    #endif
+//    #if DEBUG
+//    private let _synchronizationTracker = SynchronizationTracker()
+//    #endif
 
     /// Gets or sets current value of variable.
     ///
@@ -193,10 +193,10 @@ public final class Variable<Element> {
             return self._value
         }
         set(newValue) {
-            #if DEBUG
-                self._synchronizationTracker.register(synchronizationErrorMessage: .variable)
-                defer { self._synchronizationTracker.unregister() }
-            #endif
+//            #if DEBUG
+//                self._synchronizationTracker.register(synchronizationErrorMessage: .variable)
+//                defer { self._synchronizationTracker.unregister() }
+//            #endif
             self._lock.lock()
             self._value = newValue
             self._lock.unlock()
